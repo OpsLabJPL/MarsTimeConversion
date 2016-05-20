@@ -9,9 +9,9 @@
 import Foundation
 
 public class MarsTimeConversion {
-    static let EARTH_SECS_PER_MARS_SEC = 1.027491252
-    static let CURIOSITY_WEST_LONGITUDE = 222.6
-    static let DEG_TO_RAD = M_PI/180.0
+    public static let EARTH_SECS_PER_MARS_SEC = 1.027491252
+    public static let CURIOSITY_WEST_LONGITUDE = 222.6
+    public static let DEG_TO_RAD = M_PI/180.0
     
     //    i 	Ai 	τi 	φi
     //    1 	0.0071 	2.2353 	49.409
