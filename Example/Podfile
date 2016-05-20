@@ -2,10 +2,4 @@ use_frameworks!
 
 target 'MarsTimeConversion_Example' do
   pod 'MarsTimeConversion', :path => '../'
-
-  target 'MarsTimeConversion_Tests' do
-    inherit! :search_paths
-
-    
-  end
 end

@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = "MarsTimeConversion"
   s.version          = "0.1.0"
-  s.summary          = "A short description of MarsTimeConversion."
+  s.summary          = "MarsTimeConversion library in Swift."
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,14 +18,13 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+Conversion from Earth date and time to Mars date and time for a lander on the surface.
                        DESC
 
-  s.homepage         = "https://github.com/<GITHUB_USERNAME>/MarsTimeConversion"
-  # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
-  s.license          = 'MIT'
+  s.homepage         = "https://github.com/OpsLabJPL/MarsTimeConversion"
+  s.license          = 'Apache 2.0'
   s.author           = { "Mark Powell" => "drmarkpowell@gmail.com" }
-  s.source           = { :git => "https://github.com/<GITHUB_USERNAME>/MarsTimeConversion.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/OpsLabJPL/MarsTimeConversion.git", :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'

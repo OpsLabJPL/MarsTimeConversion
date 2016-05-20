@@ -1,0 +1,14 @@
+PODS:
+  - MarsTimeConversion (0.1.0)
+
+DEPENDENCIES:
+  - MarsTimeConversion (from `../`)
+
+EXTERNAL SOURCES:
+  MarsTimeConversion:
+    :path: ../
+
+SPEC CHECKSUMS:
+  MarsTimeConversion: eeaeda7c3d937c390c3856aad0a2a5a5e1e2deb7
+
+COCOAPODS: 0.39.0
