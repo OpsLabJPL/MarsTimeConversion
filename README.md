@@ -26,5 +26,5 @@ Mark Powell, drmarkpowell@gmail.com
 
 ## License
 
-MarsTimeConversion is available under the MIT license. See the LICENSE file for more info.
-# MarsTimeConversion
+MarsTimeConversion is available under the Apache 2.0 license. See the LICENSE file for more info.
+
