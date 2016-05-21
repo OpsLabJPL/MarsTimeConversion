@@ -9,6 +9,6 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  MarsTimeConversion: eeaeda7c3d937c390c3856aad0a2a5a5e1e2deb7
+  MarsTimeConversion: 0e37af771e586a580411ee1f7a1b43863c6ea9be
 
 COCOAPODS: 0.39.0

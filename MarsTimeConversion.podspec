@@ -27,7 +27,7 @@ Conversion from Earth date and time to Mars date and time for a lander on the su
   s.source           = { :git => "https://github.com/OpsLabJPL/MarsTimeConversion.git", :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/drmarkpowell'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '9.0'
 
   s.source_files = 'MarsTimeConversion/Classes/**/*'
   

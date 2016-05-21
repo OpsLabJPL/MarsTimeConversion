@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MarsTimeConversion
 
 class ViewController: UIViewController {
     
