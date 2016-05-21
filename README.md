@@ -9,7 +9,11 @@
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
+![screenshot](MarsTimeConversionExample.png)
+
 ## Requirements
+
+iOS 9.0 or later
 
 ## Installation
 
@@ -27,4 +31,8 @@ Mark Powell, drmarkpowell@gmail.com
 ## License
 
 MarsTimeConversion is available under the Apache 2.0 license. See the LICENSE file for more info.
+
+## Credits
+
+The work of the Mars24 team at NASA Goddard was heavily leveraged to create this library. See [their website] (http://www.giss.nasa.gov/tools/mars24/help/algorithm.html) for documentation and publications on their approach and all the hard work and research that was so thoughtfully communicated for others to use.
 
