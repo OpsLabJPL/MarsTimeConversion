@@ -41,7 +41,7 @@ class ViewController: UIViewController {
         
         let (_, _, _, _, _, _, _, _, _, _, msd, mtc, _, _) = MarsTimeConversion.getMarsTimes(now, longitude:MarsTimeConversion.CURIOSITY_WEST_LONGITUDE)
         let sol = Int(msd-(360-MarsTimeConversion.CURIOSITY_WEST_LONGITUDE)/360)-49268
-        let mtcInHours:Double = MarsTimeConversion.canonicalValue24(mtc - MarsTimeConversion.CURIOSITY_WEST_LONGITUDE*24.0/360.0)
+        let mtcInHours:Double = MarsTimeConversion.canonicalValue24(mtc - (360-MarsTimeConversion.CURIOSITY_WEST_LONGITUDE)*24.0/360.0)
         let hour:Int = Int(mtcInHours);
         let hours = String(format:"%02d", hour)
         let minute:Int = Int((mtcInHours-Double(hour))*60.0)
