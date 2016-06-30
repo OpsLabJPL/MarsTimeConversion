@@ -275,5 +275,26 @@ public class MarsTimeConversion {
     public static func getJulianDate(date:NSDate) -> (Double) {
         return date.timeIntervalSince1970 / 86400.0 + 2440587.5
     }
+    
+    /**
+     return timeIntervalSince1970 in seconds to construct NSDate
+    */
+    public static func convertFromJulianDateToCanonicalDate(julian:Double) -> (Double) {
+        return (julian - 2440587.5) * 86400.0
+    }
 
+    public static func getUTCTimeForMSL(sol:Int, hours:Int, minutes:Int, seconds:Double) -> (NSDate) {
+        let totalHours = Double(hours) + Double(minutes)/60.0 + seconds/3600.0
+        let mtc:Double = canonicalValue24(totalHours + CURIOSITY_WEST_LONGITUDE*24.0/360.0) //in Mars hours
+//        print ("mtc2: \(mtc)")
+        let msd:Double = Double(sol) + 49268.0  + mtc/24.0 //in Mars days //+ (360.0-CURIOSITY_WEST_LONGITUDE/360.0)
+//        print ("msd2: \(msd)")
+        let jdtt:Double = (msd + 0.00096 - 44796.0) * 1.027491252 + 2451549.5
+//        print ("jdtt2: \(jdtt)")
+        let secondsSince1970 = convertFromJulianDateToCanonicalDate(jdtt)
+        let tt_utc_diff:Double = 32.184 + taiutc(NSDate(timeIntervalSince1970: secondsSince1970))
+        let jdut:Double = jdtt - tt_utc_diff / 86400.0
+        let earthTime = convertFromJulianDateToCanonicalDate(jdut)
+        return NSDate(timeIntervalSince1970: earthTime)
+    }
 }

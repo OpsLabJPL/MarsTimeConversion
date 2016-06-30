@@ -14,9 +14,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var utcText: UILabel!
     @IBOutlet weak var pdtText: UILabel!
     @IBOutlet weak var lmstText: UILabel!
+    @IBOutlet weak var utc2label: UILabel!
+
+    
     
     var timer:NSTimer?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,6 +43,9 @@ class ViewController: UIViewController {
         utcText.text = formatter.stringFromDate(now)
         
         let (_, _, _, _, _, _, _, _, _, _, msd, mtc, _, _) = MarsTimeConversion.getMarsTimes(now, longitude:MarsTimeConversion.CURIOSITY_WEST_LONGITUDE)
+//        print("msd: \(msd)")
+//        print("mtc: \(mtc)")
+//        print("jdtt: \(jdtt)")
         let sol = Int(msd-(360-MarsTimeConversion.CURIOSITY_WEST_LONGITUDE)/360)-49268
         let mtcInHours:Double = MarsTimeConversion.canonicalValue24(mtc - MarsTimeConversion.CURIOSITY_WEST_LONGITUDE*24.0/360.0)
         let hour:Int = Int(mtcInHours);
@@ -47,8 +53,12 @@ class ViewController: UIViewController {
         let minute:Int = Int((mtcInHours-Double(hour))*60.0)
         let minutes = String(format:"%02d", minute)
         let second:Int = Int((mtcInHours-Double(hour))*3600.0 - Double(minute)*60.0)
+        let secondDouble:Double = (mtcInHours-Double(hour))*3600.0 - Double(minute)*60.0
         let seconds = String(format:"%02d", second);
         lmstText.text = String("Sol \(sol) \(hours):\(minutes):\(seconds)")
+        
+        let utcTime = MarsTimeConversion.getUTCTimeForMSL(sol, hours: hour, minutes: minute, seconds: secondDouble)
+        utc2label.text = formatter.stringFromDate(utcTime)
     }
 }
 
