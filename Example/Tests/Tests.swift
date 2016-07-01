@@ -55,6 +55,12 @@ class Tests: XCTestCase {
         XCTAssertEqualWithAccuracy(0.000249977, ltst, accuracy: 0.00001, "Spirit ltst invalid")
     }
     
+    func testEarthTime() {
+        XCTAssert(true, "Pass")
+        print(MarsTimeConversion.getUTCTimeForMSL(911, hours: 7, minutes: 0, seconds: 0.0))
+        print(MarsTimeConversion.getUTCTimeForMSL(911, hours: 19, minutes: 0, seconds: 0.0))
+    }
+    
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measureBlock() {
