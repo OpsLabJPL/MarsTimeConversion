@@ -287,9 +287,7 @@ public class MarsTimeConversion {
         
         let totalHours = Double(hours) + Double(minutes)/60.0 + seconds/3600.0
         let mtc:Double = totalHours + (360.0-CURIOSITY_WEST_LONGITUDE)*24.0/360.0 //in Mars hours
-        print ("mtc2: \(mtc)")
         let msd:Double = Double(sol) + 49268.0  + mtc/24.0 //in Mars days //+ (360.0-CURIOSITY_WEST_LONGITUDE/360.0)
-        print ("msd2: \(msd)")
         let jdtt:Double = (msd + 0.00096 - 44796.0) * 1.027491252 + 2451549.5
         let secondsSince1970 = convertFromJulianDateToCanonicalDate(jdtt)
         let tt_utc_diff:Double = 32.184 + taiutc(NSDate(timeIntervalSince1970: secondsSince1970))
