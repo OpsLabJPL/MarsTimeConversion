@@ -21,10 +21,10 @@ class Tests: XCTestCase {
         let SPIRIT_LANDING_SECONDS_SINCE_1970_EPOCH = 1073137591.0
         
         let spiritLanding = NSDate(timeIntervalSince1970: SPIRIT_LANDING_SECONDS_SINCE_1970_EPOCH)
-        let spiritJulian = MarsTimeConversion.getJulianDate(spiritLanding)
+        let spiritJulian = MarsTimeConversion.getJulianDate(spiritLanding as Date)
         XCTAssertEqualWithAccuracy(2453008.07397, spiritJulian, accuracy: 0.00001, "Spirit landing julian date has invalid value.")
         
-        let (jdut, tt_utc_diff, jdtt, deltaJ2000, marsMeanAnomaly, angleFictiousMeanSun, pbs, v_M_diff, ls, eot, msd, mtc, lmst, ltst) = MarsTimeConversion.getMarsTimes(spiritLanding, longitude:SPIRIT_WEST_LONGITUDE)
+        let (jdut, tt_utc_diff, jdtt, deltaJ2000, marsMeanAnomaly, angleFictiousMeanSun, pbs, v_M_diff, ls, eot, msd, mtc, lmst, ltst) = MarsTimeConversion.getMarsTimes(spiritLanding as Date, longitude:SPIRIT_WEST_LONGITUDE)
        
         XCTAssertEqualWithAccuracy(2453008.07397, jdut, accuracy: 0.00001, "Spirit landing jdut invalid")
         
@@ -63,7 +63,7 @@ class Tests: XCTestCase {
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
-        self.measureBlock() {
+        self.measure() {
             // Put the code you want to measure the time of here.
         }
     }

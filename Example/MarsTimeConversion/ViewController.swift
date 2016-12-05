@@ -18,13 +18,13 @@ class ViewController: UIViewController {
 
     
     
-    var timer:NSTimer?
+    var timer:Timer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //start clock update timer
-        timer = NSTimer.scheduledTimerWithTimeInterval(0.10, target: self, selector: #selector(ViewController.updateTime), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 0.10, target: self, selector: #selector(ViewController.updateTime), userInfo: nil, repeats: true)
         updateTime()
     }
     
@@ -35,14 +35,14 @@ class ViewController: UIViewController {
     
     func updateTime() {
         let now = NSDate()
-        let formatter = NSDateFormatter()
+        let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        formatter.timeZone = NSTimeZone(abbreviation: "PDT")
-        pdtText.text = formatter.stringFromDate(now)
-        formatter.timeZone = NSTimeZone(abbreviation: "UTC")
-        utcText.text = formatter.stringFromDate(now)
+        formatter.timeZone = NSTimeZone(abbreviation: "PDT") as TimeZone!
+        pdtText.text = formatter.string(from: now as Date)
+        formatter.timeZone = NSTimeZone(abbreviation: "UTC") as TimeZone!
+        utcText.text = formatter.string(from: now as Date)
         
-        let (_, _, _, _, _, _, _, _, _, _, msd, mtc, _, _) = MarsTimeConversion.getMarsTimes(now, longitude:MarsTimeConversion.CURIOSITY_WEST_LONGITUDE)
+        let (_, _, _, _, _, _, _, _, _, _, msd, mtc, _, _) = MarsTimeConversion.getMarsTimes(now as Date, longitude:MarsTimeConversion.CURIOSITY_WEST_LONGITUDE)
         let sol = Int(msd-(360-MarsTimeConversion.CURIOSITY_WEST_LONGITUDE)/360)-49268
         let mtcInHours:Double = MarsTimeConversion.canonicalValue24(mtc - (360-MarsTimeConversion.CURIOSITY_WEST_LONGITUDE)*24.0/360.0)
         let hour:Int = Int(mtcInHours);
@@ -55,7 +55,7 @@ class ViewController: UIViewController {
         lmstText.text = String("Sol \(sol) \(hours):\(minutes):\(seconds)")
         
         let utcTime = MarsTimeConversion.getUTCTimeForMSL(sol, hours: hour, minutes: minute, seconds: secondDouble)
-        utc2label.text = formatter.stringFromDate(utcTime)
+        utc2label.text = formatter.string(from: utcTime)
     }
 }
 
