@@ -1,0 +1,6 @@
+framework module Pods_MarsTimeConversion_Tests {
+  umbrella header "Pods-MarsTimeConversion_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}
