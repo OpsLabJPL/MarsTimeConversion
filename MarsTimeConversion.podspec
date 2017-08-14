@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'MarsTimeConversion'
-  s.version          = '0.1.8'
+  s.version          = '0.1.9'
   s.summary          = 'MarsTimeConversion library in Swift.'
 
   s.description      = <<-DESC
