@@ -6,7 +6,7 @@ target 'MarsTimeConversion_Example' do
 
   target 'MarsTimeConversion_Tests' do
     inherit! :search_paths
-    pod 'Quick', '~> 1.1'
-    pod 'Nimble', '~> 6.1'
+    pod 'Quick', '~> 1.2'
+    pod 'Nimble', '~> 7.0'
   end
 end

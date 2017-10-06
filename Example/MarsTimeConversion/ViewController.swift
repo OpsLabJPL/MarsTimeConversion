@@ -33,7 +33,7 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func updateTime() {
+    @objc func updateTime() {
         let now = NSDate()
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
